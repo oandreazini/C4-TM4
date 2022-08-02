@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 
 import javax.swing.*;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 
 public class GraphicApp extends JFrame{
@@ -12,6 +14,10 @@ public class GraphicApp extends JFrame{
 	private JTextField name1textField;
 	private JTextField name2textField;
 
+	
+	/**
+	 * Constructor ventana en blanco que llama a los otros elementos
+	 */
 	public GraphicApp() {
 		
 		setTitle("Tic Tac Toe");
@@ -28,10 +34,11 @@ public class GraphicApp extends JFrame{
 
 		setContentPane(contentPane);
 		
-		tictactoe();
+		// Se llama a los otros elementos
+		tictactoeElements();
 	}
 	
-	public void tictactoe() {
+	public void tictactoeElements() {
 		
 		/* Botones cuadricula */
 		
@@ -165,6 +172,8 @@ public class GraphicApp extends JFrame{
 		JRadioButton cpu2RadioButton = new JRadioButton("CPU");
 		cpu2RadioButton.setBounds(567, 281, 85, 21);
 		contentPane.add(cpu2RadioButton);
+		
+		btn_7.addActionListener(new ButtonAction(btn_7));
 
 	}
 }

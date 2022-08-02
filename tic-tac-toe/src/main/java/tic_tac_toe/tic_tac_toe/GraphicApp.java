@@ -2,10 +2,7 @@ package tic_tac_toe.tic_tac_toe;
 
 import javax.swing.*;
 import java.awt.Font;
-import java.awt.Window;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
+
 
 public class GraphicApp extends JFrame{
 	
@@ -29,8 +26,8 @@ public class GraphicApp extends JFrame{
 	private JButton btn_3;
 	
 	//Creo un nuevo grupo de botones
-	private ButtonGroup ButtonGroup_1 = new ButtonGroup();
-	private ButtonGroup ButtonGroup_2 = new ButtonGroup();
+	private ButtonGroup buttonGroup_1 = new ButtonGroup();
+	private ButtonGroup buttonGroup_2 = new ButtonGroup();
 	
 
 	
@@ -149,12 +146,12 @@ public class GraphicApp extends JFrame{
 		human1RadioButton = new JRadioButton("Humano");
 		human1RadioButton.setBounds(468, 157, 85, 21);
 		contentPane.add(human1RadioButton);
-		ButtonGroup_1.add(human1RadioButton);
+		buttonGroup_1.add(human1RadioButton);
 		
 		cpu1RadioButton = new JRadioButton("CPU");
 		cpu1RadioButton.setBounds(567, 157, 85, 21);
 		contentPane.add(cpu1RadioButton);
-		ButtonGroup_1.add(cpu1RadioButton);
+		buttonGroup_1.add(cpu1RadioButton);
 		
 		/* Jugador 2 */
 		
@@ -187,13 +184,13 @@ public class GraphicApp extends JFrame{
 		human2RadioButton = new JRadioButton("Humano");
 		human2RadioButton.setBounds(468, 280, 85, 21);
 		contentPane.add(human2RadioButton);
-		ButtonGroup_2.add(human2RadioButton);
+		buttonGroup_2.add(human2RadioButton);
 		
 		
 		cpu2RadioButton = new JRadioButton("CPU");
 		cpu2RadioButton.setBounds(567, 281, 85, 21);
 		contentPane.add(cpu2RadioButton);
-		ButtonGroup_2.add(cpu2RadioButton);
+		buttonGroup_2.add(cpu2RadioButton);
 		
 		/** Action Listeners */
 		
@@ -216,8 +213,8 @@ public class GraphicApp extends JFrame{
 	 */
 	public void setAllDefault() {
 				
-		ButtonGroup_1.clearSelection();
-		ButtonGroup_2.clearSelection();
+		buttonGroup_1.clearSelection();
+		buttonGroup_2.clearSelection();
 
 		name1textField.setText(null);
 		name2textField.setText(null);

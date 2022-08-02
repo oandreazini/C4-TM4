@@ -3,9 +3,6 @@ package tic_tac_toe.tic_tac_toe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
 public class StartButton implements ActionListener {
 
 	private GraphicApp window;
@@ -29,7 +26,28 @@ public class StartButton implements ActionListener {
 		// TODO boton empezar (crear 2 jugadores con los datos)
 		buttonPressed();
 		
+		// We initialize variables to create a player
+		String name;
+		boolean cpu = false;
+		boolean playing = false;
+		int num = 0;
 		
+		// We create the first player
+		if(window.getCpu1RadioButton().isSelected()) {
+			cpu = true;
+		}
+		name = window.getName1textField().getText();
+		Player player = new Player(name, cpu, playing, num);
+		this.player1 = player;
+		
+		// We create the second player
+		if(window.getCpu2RadioButton().isSelected()) {
+			cpu = true;
+		}
+		name = window.getName2textField().getText();
+		
+		player = new Player(name, cpu, playing, num);
+		this.player2 = player;
 	}
 	
 	/**

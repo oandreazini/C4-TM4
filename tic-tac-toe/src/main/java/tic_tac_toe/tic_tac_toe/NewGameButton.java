@@ -12,7 +12,7 @@ public class NewGameButton implements ActionListener {
 	private Player player;
 	
 	/**
-	 * Constructor
+	 * Constructor con boton
 	 * 
 	 * @param btn
 	 */
@@ -20,6 +20,10 @@ public class NewGameButton implements ActionListener {
 		this.btn = btn;
 	}
 	
+	/**
+	 * Contructor para panel
+	 * @param window
+	 */
 	public NewGameButton (GraphicApp window) {
 		this.window = window;
 		
@@ -30,9 +34,8 @@ public class NewGameButton implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO boton nueva partida poner todo en blanco
 		
-		if(this.window == e.getSource()) {
-			window.setAllDefault();
-		}
+		window.setAllDefault();
+		
 	}
 	
 	

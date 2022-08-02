@@ -19,8 +19,26 @@ public class Control {
 	 * @param playing
 	 * @param num
 	 */
-	public Player setPlayer(String name, boolean cpu, boolean playing, int num) {
+	public Player createPlayer(String name, boolean cpu, boolean playing, int num) {
 		Player player = new Player(name, cpu, playing, num);
 		return player;
+	}
+	
+	/**
+	 * Sets the first player
+	 * 
+	 * @param player
+	 */
+	public void setPlayer1(Player player) {
+		this.player1 = player;
+	}
+	
+	/**
+	 * Sets the second player
+	 * 
+	 * @param player
+	 */
+	public void setPlayer2(Player player) {
+		this.player2 = player;
 	}
 }

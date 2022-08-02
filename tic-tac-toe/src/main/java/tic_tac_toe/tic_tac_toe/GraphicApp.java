@@ -1,7 +1,5 @@
 package tic_tac_toe.tic_tac_toe;
 
-import java.text.DecimalFormat;
-
 import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -13,6 +11,12 @@ public class GraphicApp extends JFrame{
 	private JPanel contentPane;
 	private JTextField name1textField;
 	private JTextField name2textField;
+	
+	private JRadioButton human1RadioButton;
+	private JRadioButton cpu1RadioButton;
+	private JRadioButton human2RadioButton;
+	private JRadioButton cpu2RadioButton;
+	
 
 	
 	/**
@@ -129,11 +133,11 @@ public class GraphicApp extends JFrame{
 		tipe1Label.setBounds(410, 161, 45, 13);
 		contentPane.add(tipe1Label);
 		
-		JRadioButton human1RadioButton = new JRadioButton("Humano");
+		human1RadioButton = new JRadioButton("Humano");
 		human1RadioButton.setBounds(468, 157, 85, 21);
 		contentPane.add(human1RadioButton);
 		
-		JRadioButton cpu1RadioButton = new JRadioButton("CPU");
+		cpu1RadioButton = new JRadioButton("CPU");
 		cpu1RadioButton.setBounds(567, 157, 85, 21);
 		contentPane.add(cpu1RadioButton);
 		
@@ -165,11 +169,11 @@ public class GraphicApp extends JFrame{
 		tipe2Label.setBounds(410, 285, 45, 13);
 		contentPane.add(tipe2Label);
 		
-		JRadioButton human2RadioButton = new JRadioButton("Humano");
+		human2RadioButton = new JRadioButton("Humano");
 		human2RadioButton.setBounds(468, 280, 85, 21);
 		contentPane.add(human2RadioButton);
 		
-		JRadioButton cpu2RadioButton = new JRadioButton("CPU");
+		cpu2RadioButton = new JRadioButton("CPU");
 		cpu2RadioButton.setBounds(567, 281, 85, 21);
 		contentPane.add(cpu2RadioButton);
 		
@@ -183,5 +187,68 @@ public class GraphicApp extends JFrame{
 		btn_8.addActionListener(new DashboardButton(btn_8));
 		btn_9.addActionListener(new DashboardButton(btn_9));
 
+	}
+
+	/**
+	 * Pone los campos de los 2 jugadores en blanco
+	 */
+	public void setAllDefault() {
+		if (human1RadioButton.isSelected()) {
+			human1RadioButton.doClick();
+		}
+		if (human2RadioButton.isSelected()) {
+			human2RadioButton.doClick();
+		}
+		
+	}
+	
+	
+	/**
+	 * @return the contentPane
+	 */
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	/**
+	 * @return the name1textField
+	 */
+	public JTextField getName1textField() {
+		return name1textField;
+	}
+
+	/**
+	 * @return the name2textField
+	 */
+	public JTextField getName2textField() {
+		return name2textField;
+	}
+
+	/**
+	 * @return the human1RadioButton
+	 */
+	public JRadioButton getHuman1RadioButton() {
+		return human1RadioButton;
+	}
+
+	/**
+	 * @return the cpu1RadioButton
+	 */
+	public JRadioButton getCpu1RadioButton() {
+		return cpu1RadioButton;
+	}
+
+	/**
+	 * @return the human2RadioButton
+	 */
+	public JRadioButton getHuman2RadioButton() {
+		return human2RadioButton;
+	}
+
+	/**
+	 * @return the cpu2RadioButton
+	 */
+	public JRadioButton getCpu2RadioButton() {
+		return cpu2RadioButton;
 	}
 }

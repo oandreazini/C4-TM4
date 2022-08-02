@@ -173,7 +173,15 @@ public class GraphicApp extends JFrame{
 		cpu2RadioButton.setBounds(567, 281, 85, 21);
 		contentPane.add(cpu2RadioButton);
 		
+		btn_1.addActionListener(new DashboardButton(btn_1));
+		btn_2.addActionListener(new DashboardButton(btn_2));
+		btn_3.addActionListener(new DashboardButton(btn_3));
+		btn_4.addActionListener(new DashboardButton(btn_4));
+		btn_5.addActionListener(new DashboardButton(btn_5));
+		btn_6.addActionListener(new DashboardButton(btn_6));
 		btn_7.addActionListener(new DashboardButton(btn_7));
+		btn_8.addActionListener(new DashboardButton(btn_8));
+		btn_9.addActionListener(new DashboardButton(btn_9));
 
 	}
 }

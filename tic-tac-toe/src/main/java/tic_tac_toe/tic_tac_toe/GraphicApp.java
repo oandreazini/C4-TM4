@@ -177,6 +177,8 @@ public class GraphicApp extends JFrame{
 		cpu2RadioButton.setBounds(567, 281, 85, 21);
 		contentPane.add(cpu2RadioButton);
 		
+		/** Action Listeners */
+		
 		btn_1.addActionListener(new DashboardButton(btn_1));
 		btn_2.addActionListener(new DashboardButton(btn_2));
 		btn_3.addActionListener(new DashboardButton(btn_3));
@@ -186,6 +188,10 @@ public class GraphicApp extends JFrame{
 		btn_7.addActionListener(new DashboardButton(btn_7));
 		btn_8.addActionListener(new DashboardButton(btn_8));
 		btn_9.addActionListener(new DashboardButton(btn_9));
+		
+		btnNewGame.addActionListener(new NewGameButton(btnNewGame));
+		
+		
 
 	}
 
@@ -196,9 +202,20 @@ public class GraphicApp extends JFrame{
 		if (human1RadioButton.isSelected()) {
 			human1RadioButton.doClick();
 		}
+		if (cpu1RadioButton.isSelected()) {
+			cpu1RadioButton.doClick();
+		}
+		
 		if (human2RadioButton.isSelected()) {
 			human2RadioButton.doClick();
 		}
+		if (cpu2RadioButton.isSelected()) {
+			cpu2RadioButton.doClick();
+		}
+			name1textField.setText(null);
+			name2textField.setText(null);
+			
+		
 		
 	}
 	

@@ -7,6 +7,7 @@ public class Player {
 	private boolean playing;
 	private int num;
 	private int tokens = 0;
+	private boolean winner = false;
 	
 	
 	/**
@@ -108,11 +109,9 @@ public class Player {
 	 */
 	public boolean maxTokens() {
 		boolean max = false;
-		
 		if(this.tokens==3) {
 			max = true;
 		}
-		
 		return max;
 	}
 }

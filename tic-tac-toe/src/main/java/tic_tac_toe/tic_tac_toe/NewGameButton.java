@@ -8,17 +8,6 @@ import javax.swing.JButton;
 public class NewGameButton implements ActionListener {
 	
 	private GraphicApp window;
-	private JButton btn;
-	private Player player;
-	
-	/**
-	 * Constructor con boton
-	 * 
-	 * @param btn
-	 */
-	public NewGameButton (JButton btn) {
-		this.btn = btn;
-	}
 	
 	/**
 	 * Contructor para panel
@@ -32,10 +21,7 @@ public class NewGameButton implements ActionListener {
 	 * Accion de resetear la partida a 0
 	 */
 	public void actionPerformed(ActionEvent e) {
-		// TODO boton nueva partida poner todo en blanco
-		
 		window.setAllDefault();
-		
 	}
 	
 	

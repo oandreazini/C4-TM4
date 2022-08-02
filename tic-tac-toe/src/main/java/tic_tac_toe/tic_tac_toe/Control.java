@@ -3,12 +3,13 @@ package tic_tac_toe.tic_tac_toe;
 public class Control {
 	private Player player1;
 	private Player player2;
+	private GraphicApp window;
 	
 	/**
 	 * Empty constructor
 	 */
 	public Control () {
-		GraphicApp ventanaTictactoe = new GraphicApp();
+		window = new GraphicApp();
 	}
 	
 	/**

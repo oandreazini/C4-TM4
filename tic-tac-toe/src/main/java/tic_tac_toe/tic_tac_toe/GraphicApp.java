@@ -7,14 +7,16 @@ import java.awt.Font;
 public class GraphicApp extends JFrame{
 	
 	private JPanel contentPane;
+	
+	// Jugadores
 	private JTextField name1textField;
 	private JTextField name2textField;
-	
 	private JRadioButton human1RadioButton;
 	private JRadioButton cpu1RadioButton;
 	private JRadioButton human2RadioButton;
 	private JRadioButton cpu2RadioButton;
 	
+	// Botones casillas tabla
 	private JButton btn_7;
 	private JButton btn_8;
 	private JButton btn_9;
@@ -25,9 +27,18 @@ public class GraphicApp extends JFrame{
 	private JButton btn_2;
 	private JButton btn_3;
 	
-	//Creo un nuevo grupo de botones
+	// Creo un nuevo grupo de botones
 	private ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private ButtonGroup buttonGroup_2 = new ButtonGroup();
+	
+	// Clases jugador 1 y 2
+	private Player player1;
+	private Player player2;
+	
+	// Estado de la partida
+	private JLabel statusLabel;
+	private boolean started = false;
+	private int turn = 0;
 	
 
 	
@@ -111,7 +122,7 @@ public class GraphicApp extends JFrame{
 		
 		/* Status */
 		
-		JLabel statusLabel = new JLabel("Rellena los campos y dale a empezar: ");
+		statusLabel = new JLabel("Rellena los campos y dale a empezar: ");
 		statusLabel.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		statusLabel.setBounds(410, 54, 253, 13);
 		contentPane.add(statusLabel);
@@ -192,19 +203,13 @@ public class GraphicApp extends JFrame{
 		contentPane.add(cpu2RadioButton);
 		buttonGroup_2.add(cpu2RadioButton);
 		
-		/** Action Listeners */
-		
-		btn_1.addActionListener(new DashboardButton(btn_1));
-		btn_2.addActionListener(new DashboardButton(btn_2));
-		btn_3.addActionListener(new DashboardButton(btn_3));
-		btn_4.addActionListener(new DashboardButton(btn_4));
-		btn_5.addActionListener(new DashboardButton(btn_5));
-		btn_6.addActionListener(new DashboardButton(btn_6));
-		btn_7.addActionListener(new DashboardButton(btn_7));
-		btn_8.addActionListener(new DashboardButton(btn_8));
-		btn_9.addActionListener(new DashboardButton(btn_9));
+		/* Action Listeners */
 		
 		btnNewGame.addActionListener(new NewGameButton(this));
+		
+		btnStart.addActionListener(new StartButton(this));
+		
+		initializeTable();
 
 	}
 
@@ -228,8 +233,27 @@ public class GraphicApp extends JFrame{
 		btn_7.setText(null);
 		btn_8.setText(null);
 		btn_9.setText(null);
+		
+		this.player1 = null;
+		this.player2 = null;
+		
+		this.setStarted(false);
 	}
 	
+	/**
+	 * Start table
+	 */
+	public void initializeTable() {
+		btn_1.addActionListener(new DashboardButton(btn_1, this));
+		btn_2.addActionListener(new DashboardButton(btn_2, this));
+		btn_3.addActionListener(new DashboardButton(btn_3, this));
+		btn_4.addActionListener(new DashboardButton(btn_4, this));
+		btn_5.addActionListener(new DashboardButton(btn_5, this));
+		btn_6.addActionListener(new DashboardButton(btn_6, this));
+		btn_7.addActionListener(new DashboardButton(btn_7, this));
+		btn_8.addActionListener(new DashboardButton(btn_8, this));
+		btn_9.addActionListener(new DashboardButton(btn_9, this));
+	}
 	
 	/**
 	 * @return the contentPane
@@ -351,6 +375,103 @@ public class GraphicApp extends JFrame{
 	public void setBtn_3(JButton btn_3) {
 		this.btn_3 = btn_3;
 	}
-	
+
+	/**
+	 * @return the player1
+	 */
+	public Player getPlayer1() {
+		return player1;
+	}
+
+	/**
+	 * @param player1 the player1 to set
+	 */
+	public void setPlayer1(Player player1) {
+		this.player1 = player1;
+	}
+
+	/**
+	 * @return the player2
+	 */
+	public Player getPlayer2() {
+		return player2;
+	}
+
+	/**
+	 * @param player2 the player2 to set
+	 */
+	public void setPlayer2(Player player2) {
+		this.player2 = player2;
+	}
+
+	/**
+	 * @return the buttonGroup_1
+	 */
+	public ButtonGroup getButtonGroup_1() {
+		return buttonGroup_1;
+	}
+
+	/**
+	 * @param buttonGroup_1 the buttonGroup_1 to set
+	 */
+	public void setButtonGroup_1(ButtonGroup buttonGroup_1) {
+		this.buttonGroup_1 = buttonGroup_1;
+	}
+
+	/**
+	 * @return the buttonGroup_2
+	 */
+	public ButtonGroup getButtonGroup_2() {
+		return buttonGroup_2;
+	}
+
+	/**
+	 * @param buttonGroup_2 the buttonGroup_2 to set
+	 */
+	public void setButtonGroup_2(ButtonGroup buttonGroup_2) {
+		this.buttonGroup_2 = buttonGroup_2;
+	}
+
+	/**
+	 * @return the statusLabel
+	 */
+	public JLabel getStatusLabel() {
+		return statusLabel;
+	}
+
+	/**
+	 * @param statusLabel the statusLabel to set
+	 */
+	public void setStatusLabel(String text) {
+		this.statusLabel.setText(text);
+	}
+
+	/**
+	 * @return the started
+	 */
+	public boolean isStarted() {
+		return started;
+	}
+
+	/**
+	 * @param started the started to set
+	 */
+	public void setStarted(boolean started) {
+		this.started = started;
+	}
+
+	/**
+	 * @return the turn
+	 */
+	public int getTurn() {
+		return turn;
+	}
+
+	/**
+	 * @param turn the turn to set
+	 */
+	public void setTurn(int turn) {
+		this.turn = turn;
+	}
 	
 }

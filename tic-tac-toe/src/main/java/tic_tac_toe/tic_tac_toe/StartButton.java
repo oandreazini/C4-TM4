@@ -3,12 +3,11 @@ package tic_tac_toe.tic_tac_toe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 public class StartButton implements ActionListener {
 
 	private GraphicApp window;
-	private Player player1;
-	private Player player2;
-	private boolean pressed = false;
 	
 	/**
 	 * Constructor
@@ -23,54 +22,76 @@ public class StartButton implements ActionListener {
 	 * Action create the 2 players with the data introduced and start the turn
 	 */
 	public void actionPerformed(ActionEvent e) {
-		// TODO boton empezar (crear 2 jugadores con los datos)
-		buttonPressed();
-		
-		// We initialize variables to create a player
-		String name;
-		boolean cpu = false;
-		boolean playing = false;
-		int num = 0;
-		
-		// We create the first player
-		if(window.getCpu1RadioButton().isSelected()) {
-			cpu = true;
+		// Check de si se ha seleccionado Humano o CPU (obligatorio antes de empezar la partida)
+		if ((!window.getCpu1RadioButton().isSelected() && !window.getHuman1RadioButton().isSelected())
+				|| (!window.getCpu2RadioButton().isSelected() && !window.getHuman2RadioButton().isSelected())) {
+			
+			JOptionPane.showMessageDialog(null, "ERROR! Has de seleccionar mínimo una opción entre Humano o CPU.",
+					"ERROR", 0);
+		} else {
+			// We initialize variables to create a player
+			String name;
+			boolean cpu = false;
+			boolean playing = false;
+			int num = 0;
+			Player player1;
+			Player player2;
+
+			
+			// We create the first player
+			if (window.getCpu1RadioButton().isSelected()) {
+				cpu = true;
+			}
+			// Si no se ha introducido ningun nombre, el nombre por defecto sera Jugador 1
+			if (window.getName1textField().getText().compareTo("") == 0) {
+				player1 = new Player("Jugador 1", cpu, playing, num);
+			} else {
+				name = window.getName1textField().getText();
+				player1 = new Player(name, cpu, playing, num);
+			}
+			
+			
+			// We create the second player
+			if (window.getCpu2RadioButton().isSelected()) {
+				cpu = true;
+			}
+			// Si no se ha introducido ningun nombre, el nombre por defecto sera Jugador 2
+			if (window.getName2textField().getText().compareTo("") == 0) {
+				player2 = new Player("Jugador 2", cpu, playing, num);
+			} else {
+				name = window.getName2textField().getText();
+				player2 = new Player(name, cpu, playing, num);
+			}
+
+			
+			// Quien empieza?
+			int rn = (int) (Math.random() * ((2 - 1) + 1)) + 1;
+
+			if (rn == 1) {
+				player1.setPlaying(true);
+			} else {
+				player2.setPlaying(true);
+			}
+			window.setTurn(rn);
+			
+			// Guardamos los jugadores creados
+			window.setPlayer1(player1);
+			window.setPlayer2(player2);
+
+			// Cambiamos mensaje de estado
+			if (player1.isPlaying()) {
+				window.setStatusLabel(player1.getName()+" es tu turno xD.");
+			} else {
+				window.setStatusLabel(player2.getName()+" es tu turno xD.");
+			}
+			
+			// Inicializamos tabla
+			window.initializeTable();
+			
+			// Empieza el juego
+			window.setStarted(true);
 		}
-		name = window.getName1textField().getText();
-		Player player = new Player(name, cpu, playing, num);
-		this.player1 = player;
-		
-		// We create the second player
-		if(window.getCpu2RadioButton().isSelected()) {
-			cpu = true;
-		}
-		name = window.getName2textField().getText();
-		
-		player = new Player(name, cpu, playing, num);
-		this.player2 = player;
-	}
-	
-	/**
-	 * Sets the attribute pressed to true
-	 */
-	public void buttonPressed() {
-		this.pressed = true;
-	}
-	
-	/**
-	 * Returns pressed status
-	 * 
-	 * @return
-	 */
-	public boolean isPressed() {
-		return this.pressed;
-	}
-	
-	/**
-	 * Sets the attribute pressed to false
-	 */
-	public void buttonNotPressed() {
-		this.pressed = false;
+
 	}
 	
 	/**

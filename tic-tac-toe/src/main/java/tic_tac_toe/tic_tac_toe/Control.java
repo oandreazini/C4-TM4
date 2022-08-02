@@ -1,13 +1,14 @@
 package tic_tac_toe.tic_tac_toe;
 
 public class Control {
-	private Player player;
+	private Player player1;
+	private Player player2;
 	
 	/**
 	 * Empty constructor
 	 */
 	public Control () {
-		
+		GraphicApp ventanaTictactoe = new GraphicApp();
 	}
 	
 	/**
@@ -18,8 +19,8 @@ public class Control {
 	 * @param playing
 	 * @param num
 	 */
-	public void setPlayer(String name, boolean cpu, boolean playing, int num) {
+	public Player setPlayer(String name, boolean cpu, boolean playing, int num) {
 		Player player = new Player(name, cpu, playing, num);
-		this.player = player;
+		return player;
 	}
 }

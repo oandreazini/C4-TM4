@@ -6,6 +6,7 @@ public class Player {
 	private boolean cpu;
 	private boolean playing;
 	private int num;
+	private int tokens = 0;
 	
 	
 	/**
@@ -76,5 +77,42 @@ public class Player {
 	 */
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	/**
+	 * Adds 1 token
+	 */
+	public void addToken() {
+		this.tokens++;
+	}
+
+	/**
+	 * @return the tokens
+	 */
+	public int getTokens() {
+		return tokens;
+	}
+
+
+	/**
+	 * @param tokens the tokens to set
+	 */
+	public void setTokens(int tokens) {
+		this.tokens = tokens;
+	}
+	
+	/**
+	 * Return if the player has the max number of tokens playing in the game or not
+	 * 
+	 * @return
+	 */
+	public boolean maxTokens() {
+		boolean max = false;
+		
+		if(this.tokens==3) {
+			max = true;
+		}
+		
+		return max;
 	}
 }

@@ -5,23 +5,31 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-public class ButtonAction implements ActionListener {
+public class DashboardButton implements ActionListener {
 
 	private JButton btn;
 	private Player player;
 	
-	public ButtonAction (JButton btn) {
+	/**
+	 * Constructor
+	 * 
+	 * @param btn
+	 */
+	public DashboardButton (JButton btn) {
 		this.btn = btn;
 	}
 	
+	/**
+	 * Action ...
+	 */
 	public void actionPerformed(ActionEvent e) {
-		// TODO completar
+		// TODO completar mover ficha / quitar ficha de otro lado
 		if (btn.getText().compareTo("")==0) {
 			if(player.isPlaying()) {
-				
+				//TODO
 			}
 		}
-
 	}
-
+	
+	
 }

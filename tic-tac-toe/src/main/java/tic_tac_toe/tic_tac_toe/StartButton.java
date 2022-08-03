@@ -69,8 +69,11 @@ public class StartButton implements ActionListener {
 
 			if (rn == 1) {
 				player1.setPlaying(true);
+				DashboardButton.startGame ="O";
 			} else {
 				player2.setPlaying(true);
+				DashboardButton.startGame ="X";
+
 			}
 			window.setTurn(rn);
 			

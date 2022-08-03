@@ -1,7 +1,10 @@
 package tic_tac_toe.tic_tac_toe;
 
 import javax.swing.*;
+
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
 
 public class GraphicApp extends JFrame{
@@ -40,7 +43,6 @@ public class GraphicApp extends JFrame{
 	private boolean started = false;
 	private int turn = 0;
 	
-
 	
 	/**
 	 * Constructor ventana en blanco que llama a los otros elementos
@@ -70,38 +72,47 @@ public class GraphicApp extends JFrame{
 		/* Botones cuadricula */
 		
 		btn_7 = new JButton("");
+		btn_7.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_7.setBounds(30, 54, 85, 75);
 		contentPane.add(btn_7);
 		
 		btn_8 = new JButton("");
+		btn_8.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_8.setBounds(130, 54, 85, 75);
 		contentPane.add(btn_8);
 		
 		btn_9 = new JButton("");
+		btn_9.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_9.setBounds(234, 54, 85, 75);
 		contentPane.add(btn_9);
 		
 		btn_4 = new JButton("");
+		btn_4.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_4.setBounds(30, 139, 85, 75);
 		contentPane.add(btn_4);
 		
 		btn_5 = new JButton("");
+		btn_5.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_5.setBounds(130, 139, 85, 75);
 		contentPane.add(btn_5);
 		
 		btn_6 = new JButton("");
+		btn_6.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_6.setBounds(234, 139, 85, 75);
 		contentPane.add(btn_6);
 		
 		btn_1 = new JButton("");
+		btn_1.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_1.setBounds(30, 226, 85, 75);
 		contentPane.add(btn_1);
 		
 		btn_2 = new JButton("");
+		btn_2.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_2.setBounds(130, 224, 85, 75);
 		contentPane.add(btn_2);
 		
 		btn_3 = new JButton("");
+		btn_3.setFont(new Font("Tahoma", Font.BOLD, 58));
 		btn_3.setBounds(234, 224, 85, 75);
 		contentPane.add(btn_3);
 		
@@ -208,8 +219,6 @@ public class GraphicApp extends JFrame{
 		btnNewGame.addActionListener(new NewGameButton(this));
 		
 		btnStart.addActionListener(new StartButton(this));
-		
-		initializeTable();
 
 	}
 
@@ -221,18 +230,18 @@ public class GraphicApp extends JFrame{
 		buttonGroup_1.clearSelection();
 		buttonGroup_2.clearSelection();
 
-		name1textField.setText(null);
-		name2textField.setText(null);
+		name1textField.setText("");
+		name2textField.setText("");
 
-		btn_1.setText(null);
-		btn_2.setText(null);
-		btn_3.setText(null);
-		btn_4.setText(null);
-		btn_5.setText(null);
-		btn_6.setText(null);
-		btn_7.setText(null);
-		btn_8.setText(null);
-		btn_9.setText(null);
+		btn_1.setText("");
+		btn_2.setText("");
+		btn_3.setText("");
+		btn_4.setText("");
+		btn_5.setText("");
+		btn_6.setText("");
+		btn_7.setText("");
+		btn_8.setText("");
+		btn_9.setText("");
 		
 		this.player1 = null;
 		this.player2 = null;
@@ -260,6 +269,7 @@ public class GraphicApp extends JFrame{
 		btn_9.addActionListener(new DashboardButton(btn_9, this));
 	}
 	
+
 	/**
 	 * @return the contentPane
 	 */

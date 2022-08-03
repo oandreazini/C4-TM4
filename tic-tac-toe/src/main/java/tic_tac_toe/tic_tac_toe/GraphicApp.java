@@ -237,6 +237,11 @@ public class GraphicApp extends JFrame{
 		this.player1 = null;
 		this.player2 = null;
 		
+		statusLabel.setText("Rellena los campos y dale a empezar: ");
+		
+		started = false;
+		turn = 0;
+		
 		this.setStarted(false);
 	}
 	

@@ -219,6 +219,8 @@ public class GraphicApp extends JFrame{
 		btnNewGame.addActionListener(new NewGameButton(this));
 		
 		btnStart.addActionListener(new StartButton(this));
+		
+		initializeTable();
 
 	}
 

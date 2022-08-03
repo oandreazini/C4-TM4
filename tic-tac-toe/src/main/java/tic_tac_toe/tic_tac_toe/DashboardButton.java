@@ -29,33 +29,47 @@ public class DashboardButton implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		// TODO completar mover ficha / quitar ficha de otro lado
-		// Miramos si el juego ha empezado, en caso que los listeners estan activos
-		if(window.isStarted()) {
+		// Miramos si el juego ha empezado
+		if (window.isStarted()) {
+			
 			// Miramos que el jugador esta jugando en el turno que le toca
-			if ((window.getTurn()==1 && window.getPlayer1().isPlaying()) || (window.getTurn()==2 && window.getPlayer2().isPlaying())) {
+			if ((window.getTurn() == 1 && window.getPlayer1().isPlaying())
+					|| (window.getTurn() == 2 && window.getPlayer2().isPlaying())) {
+				
 				// Comprovamos que el buton esta vacio
-				if(btn.getText().compareTo("")==0) {
-					btn.setText(startGame);
-					// Jugador 2, juega con las X
-					if(startGame.equalsIgnoreCase("X")){
-						if(window.getPlayer2().maxTokens() == false) {
+				if (btn.getText().compareTo("") == 0) {
+					
+					// Comprueba Jugador 2, (X)
+					if (startGame.equalsIgnoreCase("X")) {
+						
+						// Miramos si Jugador 2 tiene maximo de fichas (3)
+						if (window.getPlayer2().maxTokens() == false) {
+							btn.setText(startGame);
 							btn.setForeground(Color.RED);
+							window.getPlayer2().addToken();
 							startGame = "O";
 							window.setStatusLabel(window.getPlayer1().getName() + " es tu turno XD");
-							window.getPlayer1().addToken();
 						} else {
 							System.out.println("Fichas jugador 2 maximo");
 						}
+					
+					// Comprueba Jugador 1, (O)
+					} else {
+						
+						// Miramos si jugador 1 tiene maximo de fichas
+						if (window.getPlayer1().maxTokens() == false) {
+							btn.setText(startGame);
+							btn.setForeground(Color.BLUE);
+							window.getPlayer1().addToken();
+							startGame = "X";
+							window.setStatusLabel(window.getPlayer2().getName() + " es tu turno XD");
+						} else {
+							System.out.println("Fichas jugador 1 maximo");
+						}
 					}
-					// Jugador 1, juega con las O
-					else if (window.getPlayer1().maxTokens() == false) {
-						btn.setForeground(Color.BLUE);
-						startGame = "X";
-						window.setStatusLabel(window.getPlayer2().getName() + " es tu turno XD");
-						window.getPlayer2().addToken();
-					}else {
-						System.out.println("Fichas jugador 1 maximo");
-					}
+					
+					
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);
 				}
@@ -66,4 +80,7 @@ public class DashboardButton implements ActionListener {
 			JOptionPane.showMessageDialog(null, "EPA! La partida no ha empezado aun.", "ERROR", 0);
 		}
 	}
+	
+	
+	
 }

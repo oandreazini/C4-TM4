@@ -88,9 +88,6 @@ public class StartButton implements ActionListener {
 				window.setStatusLabel(player2.getName()+" es tu turno xD.");
 			}
 			
-			// Inicializamos tabla
-			window.initializeTable();
-			
 			// Empieza el juego
 			window.setStarted(true);
 		}

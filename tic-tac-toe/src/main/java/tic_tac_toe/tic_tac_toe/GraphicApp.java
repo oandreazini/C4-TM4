@@ -3,6 +3,7 @@ package tic_tac_toe.tic_tac_toe;
 import javax.swing.*;
 
 import java.awt.Font;
+import java.awt.Color;
 
 public class GraphicApp extends JFrame {
 
@@ -54,6 +55,8 @@ public class GraphicApp extends JFrame {
 		setVisible(true);
 
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setForeground(Color.WHITE);
 
 		contentPane.setLayout(null);
 
@@ -178,7 +181,6 @@ public class GraphicApp extends JFrame {
 		contentPane.add(player2Label);
 
 		JLabel xLabel = new JLabel("X");
-		xLabel.setEnabled(false);
 		xLabel.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		xLabel.setBounds(613, 214, 28, 13);
 		contentPane.add(xLabel);

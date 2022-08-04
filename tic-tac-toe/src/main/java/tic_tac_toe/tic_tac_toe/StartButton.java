@@ -95,7 +95,7 @@ public class StartButton implements ActionListener {
 					player1.movementCpu(window);
 				}
 
-				if (player2.isCpu() && player1.isPlaying()) {
+				if (player2.isCpu() && player2.isPlaying()) {
 					player2.movementCpu(window);
 				}
 			}

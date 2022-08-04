@@ -40,7 +40,7 @@ public class DashboardButton implements ActionListener {
 				if (startGame.equalsIgnoreCase("X")) {
 
 					// Miramos si Jugador 2 tiene maximo de fichas (3)
-					if (window.getPlayer2().maxTokens() == false) {
+					if (window.getPlayer2().maxTokens() == false ) {
 
 						// Comprobamos que el buton esta vacio
 						if (btn.getText().compareTo("") == 0) {

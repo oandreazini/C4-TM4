@@ -128,164 +128,349 @@ public class Player {
 	 */
 	public void movementCpu(GraphicApp window) {
 		// Generamos un número aleatorio del 1 al 9 para saber cual boton pulsara la CPU
-		int rn = (int) (Math.random() * ((9 - 1) + 1)) + 1;
-		System.out.println(rn);
-		switch (rn) {
-		case 1:
-			if (window.getBtn_1().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_1().doClick();
+		if (window.isStarted() && (window.getPlayer1().isCpu() == true || window.getPlayer2().isCpu() == true)) {
+
+			int rn = (int) (Math.random() * ((9 - 1) + 1)) + 1;
+			System.out.println(rn);
+			switch (rn) {
+			case 1:
+				if (window.getBtn_1().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_1().doClick();
+					break;
+				}else if (window.getBtn_1().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+						window.getBtn_1().doClick();
+						break;
+				}
+				if(window.getBtn_1().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+					window.getBtn_1().doClick();
+					removeCpu(window);
+					break;
+				} else if (window.getBtn_1().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+					window.getBtn_1().doClick(); 
+					removeCpu(window);
+					break;
+				} 
+				movementCpu(window);
 				break;
-			} else {
+			case 2:
+				if (window.getBtn_2().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_2().doClick();
+					break;
+				} else if (window.getBtn_2().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+					window.getBtn_2().doClick();
+					break;
+				}
+				if(window.getBtn_2().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+					window.getBtn_2().doClick();
+					removeCpu(window);
+					break;
+				} else if (window.getBtn_2().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+					window.getBtn_2().doClick(); 
+					removeCpu(window);
+					break;
+				}
+				movementCpu(window);
+				break;
+			case 3:
+				if (window.getBtn_3().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_3().doClick();
+					break;
+				}else if (window.getBtn_3().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+						window.getBtn_3().doClick();
+						break;
+				}
+				if(window.getBtn_3().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+					window.getBtn_3().doClick();
+					removeCpu(window);
+					break;
+				} else if (window.getBtn_3().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+					window.getBtn_3().doClick(); 
+					removeCpu(window);
+					break;
+				} 
+				movementCpu(window);
+				break;
+			case 4:
+				if (window.getBtn_4().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_4().doClick();
+					break;
+				} else if (window.getBtn_4().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+						window.getBtn_4().doClick();
+						break;
+				}
+				if(window.getBtn_4().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+					window.getBtn_4().doClick();
+					removeCpu(window);
+					break;
+				} else if (window.getBtn_4().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+					window.getBtn_4().doClick(); 
+					removeCpu(window);
+					break;
+				} 
+				movementCpu(window);
+				break;
+			case 5:
+				if (window.getBtn_5().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_5().doClick();
+					break;
+				} else if (window.getBtn_5().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+					window.getBtn_5().doClick();
+					break;
+				}
+					if(window.getBtn_5().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+						window.getBtn_5().doClick();
+						removeCpu(window);
+						break;
+					} else if (window.getBtn_5().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+						window.getBtn_5().doClick(); 
+						removeCpu(window);
+				} 
+				movementCpu(window);
+				break;
+			case 6:
+				if (window.getBtn_6().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_6().doClick();
+					break;
+				}else if (window.getBtn_6().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+					window.getBtn_6().doClick();
+					break;
+				}
+					if(window.getBtn_6().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+						window.getBtn_6().doClick();
+						removeCpu(window);
+						break;
+					} else if (window.getBtn_6().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+						window.getBtn_6().doClick(); 
+						removeCpu(window);
+						break;
+					} 
+				movementCpu(window);
+				break;
+				
+			case 7:
+				if (window.getBtn_7().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_7().doClick();
+					break;
+				} else if (window.getBtn_7().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+					window.getBtn_7().doClick();
+					break;
+				}
+					if(window.getBtn_7().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+						window.getBtn_7().doClick();
+						removeCpu(window);
+						break;
+					} else if (window.getBtn_7().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+						window.getBtn_7().doClick(); 
+						removeCpu(window);
+						break;
+					} 
+				movementCpu(window);
+				break;
+			case 8:
+				if (window.getBtn_8().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_8().doClick();
+					break;
+				} else if (window.getBtn_8().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+					window.getBtn_8().doClick();
+					break;
+				}
+				if(window.getBtn_8().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+					window.getBtn_8().doClick();
+					removeCpu(window);
+					break;
+					} else if (window.getBtn_8().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+						window.getBtn_8().doClick(); 
+						removeCpu(window);
+						break;
+					} 
+				movementCpu(window);
+				break;
+			case 9:
+				if (window.getBtn_9().getText().compareToIgnoreCase("") == 0 && window.getPlayer1().maxTokens() == false) {
+					window.getBtn_9().doClick();
+					break;
+				} else if (window.getBtn_9().getText().compareToIgnoreCase("") == 0 && window.getPlayer2().maxTokens() == false) {
+					window.getBtn_9().doClick();
+					break;
+				}
+				if(window.getBtn_9().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().maxTokens() == true) {
+					window.getBtn_9().doClick();
+					removeCpu(window);
+					break;
+					} else if (window.getBtn_9().getText().compareToIgnoreCase("X") == 0 && window.getPlayer2().maxTokens() == true) {
+						window.getBtn_9().doClick(); 
+						removeCpu(window);
+						break;
+				}
+				movementCpu(window);
+				break;
+			}
+		}
+	}
+
+	public void removeCpu(GraphicApp window) {
+		// Generamos un número aleatorio del 1 al 9 para saber cual boton pulsara la CPU
+		// y eliminarlo cuando esta lleno
+		if (window.isStarted() && (window.getPlayer1().isCpu() == true || window.getPlayer2().isCpu() == true)) {
+
+			int rn = (int) (Math.random() * ((9 - 1) + 1)) + 1;
+			System.out.println("remove " + rn);
+
+			switch (rn) {
+			case 1:
 				if (window.getBtn_1().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_1().setText("");
-					subToken();
+					window.getBtn_1().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
+
 				} else if (window.getBtn_1().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_1().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 2:
-			if (window.getBtn_2().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_2().doClick();
-
+					window.getBtn_1().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 2:
 				if (window.getBtn_2().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_2().setText("");
-					subToken();
+					window.getBtn_2().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
+
 				} else if (window.getBtn_2().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_2().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 3:
-			if (window.getBtn_3().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_3().doClick();
+					window.getBtn_2().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 3:
 				if (window.getBtn_3().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_3().setText("");
-					subToken();
+					window.getBtn_3().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
+
 				} else if (window.getBtn_3().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_3().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 4:
-			if (window.getBtn_4().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_4().doClick();
+					window.getBtn_3().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 4:
 				if (window.getBtn_4().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_4().setText("");
-					subToken();
+					window.getBtn_4().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
+
 				} else if (window.getBtn_4().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_4().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 5:
-			if (window.getBtn_5().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_5().doClick();
+					window.getBtn_4().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 5:
 				if (window.getBtn_5().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_5().setText("");
-					subToken();
+					window.getBtn_5().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
+
 				} else if (window.getBtn_5().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_5().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 6:
-			if (window.getBtn_6().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_6().doClick();
+					window.getBtn_5().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				}  
 				break;
-			} else {
+
+			case 6:
 				if (window.getBtn_6().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_6().setText("");
+					window.getBtn_6().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
 
 				} else if (window.getBtn_6().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_6().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 7:
-			if (window.getBtn_7().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_7().doClick();
+					window.getBtn_6().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 7:
 				if (window.getBtn_7().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_7().setText("");
-					subToken();
+					window.getBtn_7().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
+
 				} else if (window.getBtn_7().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_7().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 8:
-			if (window.getBtn_8().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_8().doClick();
+					window.getBtn_7().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 8:
 				if (window.getBtn_8().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_8().setText("");
-					subToken();
+					window.getBtn_8().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
 
 				} else if (window.getBtn_8().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_8().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
-		case 9:
-			if (window.getBtn_9().getText().compareToIgnoreCase("") == 0) {
-				window.getBtn_9().doClick();
+					window.getBtn_8().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 
 				break;
-			} else {
+
+			case 9:
 				if (window.getBtn_9().getText().compareToIgnoreCase("O") == 0 && window.getPlayer1().isPlaying() == true
 						&& window.getPlayer1().maxTokens() == true) {
-					window.getBtn_9().setText("");
-					subToken();
+					window.getBtn_9().doClick();
+					window.getPlayer1().tokens = 2;
+					movementCpu(window);
+					break;
 				} else if (window.getBtn_9().getText().compareToIgnoreCase("X") == 0
 						&& window.getPlayer2().isPlaying() == true && window.getPlayer2().maxTokens() == true) {
-					window.getBtn_9().setText("");
-					subToken();
-				}
-				movementCpu(window);
-			}
-			break;
+					window.getBtn_9().doClick();
+					window.getPlayer2().tokens = 2;
+					movementCpu(window);
+					break;
+				} 	
+				break;
+			default: 
+				removeCpu(window);
+			} 
 		}
 	}
 }

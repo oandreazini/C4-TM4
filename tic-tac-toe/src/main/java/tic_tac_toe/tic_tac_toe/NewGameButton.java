@@ -4,23 +4,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NewGameButton implements ActionListener {
-	
+
 	private GraphicApp window;
-	
+
 	/**
 	 * Contructor para panel
+	 * 
 	 * @param window
 	 */
-	public NewGameButton (GraphicApp window) {
+	public NewGameButton(GraphicApp window) {
 		this.window = window;
-		
+
 	}
+
 	/**
 	 * Accion de resetear la partida a 0
 	 */
 	public void actionPerformed(ActionEvent e) {
 		window.setAllDefault();
 	}
-	
-	
+
 }

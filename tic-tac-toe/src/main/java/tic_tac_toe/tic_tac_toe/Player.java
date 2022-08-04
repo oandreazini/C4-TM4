@@ -1,15 +1,14 @@
 package tic_tac_toe.tic_tac_toe;
 
 public class Player {
-	
+
 	private String name;
 	private boolean cpu;
 	private boolean playing;
 	private int num;
 	private int tokens = 0;
 	private boolean winner = false;
-	
-	
+
 	/**
 	 * @param name
 	 * @param cpu
@@ -22,7 +21,6 @@ public class Player {
 		this.playing = playing;
 		this.num = num;
 	}
-
 
 	/**
 	 * @return the name
@@ -86,7 +84,7 @@ public class Player {
 	public void addToken() {
 		this.tokens++;
 	}
-	
+
 	/**
 	 * Minus 1 token
 	 */
@@ -101,14 +99,13 @@ public class Player {
 		return tokens;
 	}
 
-
 	/**
 	 * @param tokens the tokens to set
 	 */
 	public void setTokens(int tokens) {
 		this.tokens = tokens;
 	}
-	
+
 	/**
 	 * Return if the player has the max number of tokens playing in the game or not
 	 * 
@@ -116,7 +113,7 @@ public class Player {
 	 */
 	public boolean maxTokens() {
 		boolean max = false;
-		if(this.tokens==3) {
+		if (this.tokens == 3) {
 			max = true;
 		}
 		return max;

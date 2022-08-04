@@ -7,7 +7,6 @@ public class Player {
 	private boolean playing;
 	private int num;
 	private int tokens = 0;
-	private boolean winner = false;
 
 	/**
 	 * @param name
@@ -117,5 +116,90 @@ public class Player {
 			max = true;
 		}
 		return max;
+	}
+	
+	/**
+	 * Movimiento de la CPU de manera aleatoria entre las 9 casillas. Es recursiva hasta que encuentra un casilla libre.
+	 * 
+	 * @param window 
+	 */
+	public void movementCpu(GraphicApp window) {
+		// Generamos un número aleatorio del 1 al 9 para saber cual boton pulsara la CPU
+		int rn = (int) (Math.random() * ((9 - 1) + 1)) + 1;
+		
+		switch (rn) {
+		case 1:
+			if (window.getBtn_1().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_1().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 2:
+			if (window.getBtn_2().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_2().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 3:
+			if (window.getBtn_3().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_3().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 4:
+			if (window.getBtn_4().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_4().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 5:
+			if (window.getBtn_5().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_5().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 6:
+			if (window.getBtn_6().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_6().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 7:
+			if (window.getBtn_7().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_7().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 8:
+			if (window.getBtn_8().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_8().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		case 9:
+			if (window.getBtn_9().getText().compareToIgnoreCase("")==0) {
+				window.getBtn_9().doClick();
+				break;
+			} else {
+				movementCpu(window);
+			}
+			break;
+		}
 	}
 }

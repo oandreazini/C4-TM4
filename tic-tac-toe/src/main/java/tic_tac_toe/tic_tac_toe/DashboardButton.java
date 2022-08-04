@@ -11,7 +11,6 @@ public class DashboardButton implements ActionListener {
 
 	private JButton btn;
 	private GraphicApp window;
-	private int numButton;
 
 	public static String startGame = "X";
 
@@ -23,7 +22,6 @@ public class DashboardButton implements ActionListener {
 	public DashboardButton(JButton btn, GraphicApp window, int numButton) {
 		this.btn = btn;
 		this.window = window;
-		this.numButton = numButton;
 	}
 
 	/**
@@ -44,18 +42,23 @@ public class DashboardButton implements ActionListener {
 					// Miramos si Jugador 2 tiene maximo de fichas (3)
 					if (window.getPlayer2().maxTokens() == false) {
 
-						// Comprovamos que el buton esta vacio
+						// Comprobamos que el buton esta vacio
 						if (btn.getText().compareTo("") == 0) {
 							btn.setText(startGame);
 							btn.setForeground(Color.RED);
 							window.getPlayer2().addToken();
 							startGame = "O";
-							window.setStatusLabel(window.getPlayer1().getName() + " es tu turno XD");
-							window.winner();
+							window.setStatusLabel(window.getPlayer1().getName() + " es tu turno.");
+							boolean winner = window.winner();
+							
+							// Comprobamos si el siguiente jugador es CPU y no hay ganador
+							if(!winner && window.getPlayer1().isCpu()) {
+								window.getPlayer1().movementCpu(window);
+							}
 
 						} else {
 							// Si se toca una casilla ya ocupada por una ficha
-							JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);
+							JOptionPane.showMessageDialog(null, "EPA! Que esta ocupaoo", "ERROR", 0);
 						}
 					} else {
 						// Maximo de fichas alcanzado, hay que mover las ya existentes
@@ -73,11 +76,15 @@ public class DashboardButton implements ActionListener {
 							btn.setForeground(Color.BLUE);
 							window.getPlayer1().addToken();
 							startGame = "X";
-							window.setStatusLabel(window.getPlayer2().getName() + " es tu turno XD");
-							window.winner();
+							window.setStatusLabel(window.getPlayer2().getName() + " es tu turno.");
+							boolean winner = window.winner();
+							
+							if(!winner && window.getPlayer2().isCpu()) {
+								window.getPlayer2().movementCpu(window);
+							}
 
 						} else {
-							JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);
+							JOptionPane.showMessageDialog(null, "EPA! Que esta ocupaoo", "ERROR", 0);
 						}
 					} else {
 						deleteToken(window.getPlayer1());
@@ -92,6 +99,7 @@ public class DashboardButton implements ActionListener {
 			// En caso que la partida no haya empezado
 			JOptionPane.showMessageDialog(null, "EPA! La partida no ha empezado aun.", "ERROR", 0);
 		}
+		
 	}
 
 	/**

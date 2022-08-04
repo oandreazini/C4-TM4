@@ -51,7 +51,7 @@ public class DashboardButton implements ActionListener {
 								window.getPlayer2().addToken();
 								startGame = "O";
 								window.setStatusLabel(window.getPlayer1().getName() + " es tu turno XD");
-								
+								window.winner();
 								
 							} else {
 								// Si se toca una casilla ya ocupada por una ficha
@@ -74,7 +74,7 @@ public class DashboardButton implements ActionListener {
 								window.getPlayer1().addToken();
 								startGame = "X";
 								window.setStatusLabel(window.getPlayer2().getName() + " es tu turno XD");
-								
+								window.winner();
 								
 							} else {
 								JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);

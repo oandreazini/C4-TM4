@@ -11,6 +11,7 @@ public class DashboardButton implements ActionListener {
 
 	private JButton btn;
 	private GraphicApp window;
+	private int numButton;
 
 	public static String startGame ="X";
 
@@ -19,9 +20,10 @@ public class DashboardButton implements ActionListener {
 	 * 
 	 * @param btn
 	 */
-	public DashboardButton (JButton btn, GraphicApp window) {
+	public DashboardButton (JButton btn, GraphicApp window, int numButton) {
 		this.btn = btn;
 		this.window = window;
+		this.numButton = numButton;
 	}
 
 	/**
@@ -36,21 +38,28 @@ public class DashboardButton implements ActionListener {
 			if ((window.getTurn() == 1 && window.getPlayer1().isPlaying())
 					|| (window.getTurn() == 2 && window.getPlayer2().isPlaying())) {
 				
-				// Comprovamos que el buton esta vacio
-				if (btn.getText().compareTo("") == 0) {
-					
 					// Comprueba Jugador 2, (X)
 					if (startGame.equalsIgnoreCase("X")) {
 						
 						// Miramos si Jugador 2 tiene maximo de fichas (3)
 						if (window.getPlayer2().maxTokens() == false) {
-							btn.setText(startGame);
-							btn.setForeground(Color.RED);
-							window.getPlayer2().addToken();
-							startGame = "O";
-							window.setStatusLabel(window.getPlayer1().getName() + " es tu turno XD");
+							
+							// Comprovamos que el buton esta vacio
+							if(btn.getText().compareTo("") == 0) {
+								btn.setText(startGame);
+								btn.setForeground(Color.RED);
+								window.getPlayer2().addToken();
+								startGame = "O";
+								window.setStatusLabel(window.getPlayer1().getName() + " es tu turno XD");
+								
+								
+							} else {
+								// Si se toca una casilla ya ocupada por una ficha
+								JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);
+							}
 						} else {
-							System.out.println("Fichas jugador 2 maximo");
+							// Maximo de fichas alcanzado, hay que mover las ya existentes
+							deleteToken(window.getPlayer2());
 						}
 					
 					// Comprueba Jugador 1, (O)
@@ -58,29 +67,54 @@ public class DashboardButton implements ActionListener {
 						
 						// Miramos si jugador 1 tiene maximo de fichas
 						if (window.getPlayer1().maxTokens() == false) {
-							btn.setText(startGame);
-							btn.setForeground(Color.BLUE);
-							window.getPlayer1().addToken();
-							startGame = "X";
-							window.setStatusLabel(window.getPlayer2().getName() + " es tu turno XD");
+							
+							if (btn.getText().compareTo("") == 0) {
+								btn.setText(startGame);
+								btn.setForeground(Color.BLUE);
+								window.getPlayer1().addToken();
+								startGame = "X";
+								window.setStatusLabel(window.getPlayer2().getName() + " es tu turno XD");
+								
+								
+							} else {
+								JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);
+							}
 						} else {
-							System.out.println("Fichas jugador 1 maximo");
+							deleteToken(window.getPlayer1());
 						}
 					}
 					
 					
-					
-				} else {
-					JOptionPane.showMessageDialog(null, "EPA! Que esta ocupadoo", "ERROR", 0);
-				}
 			} else {
+				// En caso que algun jugador juegue en un turno que no le toca
 				JOptionPane.showMessageDialog(null, "EPA! No es tu turno aunque nunca vas a ver esto.", "ERROR", 0);
 			}
 		} else {
+			// En caso que la partida no haya empezado
 			JOptionPane.showMessageDialog(null, "EPA! La partida no ha empezado aun.", "ERROR", 0);
 		}
 	}
 	
 	
+	/**
+	 * Cuando cada jugador ya tiene 3 fichas en juego, se tiene que borrar una para poder colocarla en otra casilla
+	 * 
+	 * @param player
+	 */
+	public void deleteToken (Player player) {
+		if(btn.getText().compareToIgnoreCase(startGame)==0) {
+			btn.setText("");
+			player.subToken();
+		}
+	}
 	
+	/**
+	 * Check para comprobar si ya hay ganador
+	 * 
+	 * @return
+	 */
+	public boolean winner() {
+		
+		return false;
+	}
 }

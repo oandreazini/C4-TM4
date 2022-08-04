@@ -260,15 +260,15 @@ public class GraphicApp extends JFrame{
 	 * Start table
 	 */
 	public void initializeTable() {
-		btn_1.addActionListener(new DashboardButton(btn_1, this));
-		btn_2.addActionListener(new DashboardButton(btn_2, this));
-		btn_3.addActionListener(new DashboardButton(btn_3, this));
-		btn_4.addActionListener(new DashboardButton(btn_4, this));
-		btn_5.addActionListener(new DashboardButton(btn_5, this));
-		btn_6.addActionListener(new DashboardButton(btn_6, this));
-		btn_7.addActionListener(new DashboardButton(btn_7, this));
-		btn_8.addActionListener(new DashboardButton(btn_8, this));
-		btn_9.addActionListener(new DashboardButton(btn_9, this));
+		btn_1.addActionListener(new DashboardButton(btn_1, this, 1));
+		btn_2.addActionListener(new DashboardButton(btn_2, this, 2));
+		btn_3.addActionListener(new DashboardButton(btn_3, this, 3));
+		btn_4.addActionListener(new DashboardButton(btn_4, this, 4));
+		btn_5.addActionListener(new DashboardButton(btn_5, this, 5));
+		btn_6.addActionListener(new DashboardButton(btn_6, this, 6));
+		btn_7.addActionListener(new DashboardButton(btn_7, this, 7));
+		btn_8.addActionListener(new DashboardButton(btn_8, this, 8));
+		btn_9.addActionListener(new DashboardButton(btn_9, this, 9));
 	}
 	
 
@@ -491,4 +491,12 @@ public class GraphicApp extends JFrame{
 		this.turn = turn;
 	}
 	
+	/**
+	 * Check para comprobar si ya hay ganador
+	 * 
+	 * @return
+	 */
+	public boolean winner() {
+		return false;
+	}
 }

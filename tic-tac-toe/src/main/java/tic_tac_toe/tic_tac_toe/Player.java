@@ -86,6 +86,13 @@ public class Player {
 	public void addToken() {
 		this.tokens++;
 	}
+	
+	/**
+	 * Minus 1 token
+	 */
+	public void subToken() {
+		this.tokens--;
+	}
 
 	/**
 	 * @return the tokens

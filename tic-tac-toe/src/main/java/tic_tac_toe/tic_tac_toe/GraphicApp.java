@@ -55,7 +55,7 @@ public class GraphicApp extends JFrame {
 		setVisible(true);
 
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(new Color(143, 188, 143));
 		contentPane.setForeground(Color.WHITE);
 
 		contentPane.setLayout(null);
@@ -118,6 +118,7 @@ public class GraphicApp extends JFrame {
 		/* Boton nueva partida */
 
 		JButton btnNewGame = new JButton("Nueva Partida");
+		btnNewGame.setBackground(new Color(255, 165, 0));
 		btnNewGame.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		btnNewGame.setBounds(176, 10, 132, 21);
 		contentPane.add(btnNewGame);
@@ -125,9 +126,12 @@ public class GraphicApp extends JFrame {
 		/* Boton empezar */
 
 		JButton btnStart = new JButton("Empezar");
+		btnStart.setForeground(new Color(0, 0, 0));
+		btnStart.setBackground(new Color(255, 165, 0));
 		btnStart.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		btnStart.setBounds(323, 11, 132, 21);
 		contentPane.add(btnStart);
+		
 
 		/* Status */
 
@@ -164,11 +168,16 @@ public class GraphicApp extends JFrame {
 		contentPane.add(tipe1Label);
 
 		human1RadioButton = new JRadioButton("Humano");
+		human1RadioButton.setFont(new Font("Arial Black", Font.PLAIN, 10));
+		human1RadioButton.setBackground(new Color(244, 164, 96));
+		human1RadioButton.setForeground(new Color(0, 0, 0));
 		human1RadioButton.setBounds(468, 157, 85, 21);
 		contentPane.add(human1RadioButton);
 		buttonGroup_1.add(human1RadioButton);
 
 		cpu1RadioButton = new JRadioButton("CPU");
+		cpu1RadioButton.setFont(new Font("Arial Black", Font.PLAIN, 10));
+		cpu1RadioButton.setBackground(new Color(244, 164, 96));
 		cpu1RadioButton.setBounds(567, 157, 85, 21);
 		contentPane.add(cpu1RadioButton);
 		buttonGroup_1.add(cpu1RadioButton);
@@ -201,11 +210,15 @@ public class GraphicApp extends JFrame {
 		contentPane.add(tipe2Label);
 
 		human2RadioButton = new JRadioButton("Humano");
+		human2RadioButton.setFont(new Font("Arial Black", Font.PLAIN, 10));
+		human2RadioButton.setBackground(new Color(244, 164, 96));
 		human2RadioButton.setBounds(468, 280, 85, 21);
 		contentPane.add(human2RadioButton);
 		buttonGroup_2.add(human2RadioButton);
 
 		cpu2RadioButton = new JRadioButton("CPU");
+		cpu2RadioButton.setBackground(new Color(244, 164, 96));
+		cpu2RadioButton.setFont(new Font("Arial Black", Font.PLAIN, 10));
 		cpu2RadioButton.setBounds(567, 281, 85, 21);
 		contentPane.add(cpu2RadioButton);
 		buttonGroup_2.add(cpu2RadioButton);

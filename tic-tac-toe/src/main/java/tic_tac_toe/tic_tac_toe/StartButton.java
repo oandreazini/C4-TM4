@@ -38,29 +38,34 @@ public class StartButton implements ActionListener {
 				boolean cpu = false;
 				boolean playing = false;
 				int num = 0;
+				String token;
 				Player player1;
 				Player player2;
 
 				/* Creamos primer jugador */
 				// Miramos si es CPU
 				cpu = window.getCpu1RadioButton().isSelected();
+				// Le insertamos su token
+				token = "O";
 				// Si no se ha introducido ningun nombre, el nombre por defecto sera Jugador 1
 				if (window.getName1textField().getText().compareTo("") == 0) {
-					player1 = new Player("Jugador 1", cpu, playing, num);
+					player1 = new Player("Jugador 1", cpu, playing, num, token);
 				} else {
 					name = window.getName1textField().getText();
-					player1 = new Player(name, cpu, playing, num);
+					player1 = new Player(name, cpu, playing, num, token);
 				}
 
 				/* Creamos segundo jugador */
 				// Miramos si es CPU
 				cpu = window.getCpu2RadioButton().isSelected();
+				// Le insertamos su token
+				token = "X";
 				// Si no se ha introducido ningun nombre, el nombre por defecto sera Jugador 2
 				if (window.getName2textField().getText().compareTo("") == 0) {
-					player2 = new Player("Jugador 2", cpu, playing, num);
+					player2 = new Player("Jugador 2", cpu, playing, num, token);
 				} else {
 					name = window.getName2textField().getText();
-					player2 = new Player(name, cpu, playing, num);
+					player2 = new Player(name, cpu, playing, num, token);
 				}
 
 				/* Quien empieza? */
@@ -91,6 +96,7 @@ public class StartButton implements ActionListener {
 				window.setStarted(true);
 
 				// Comprobamos si alguno de los jugadores (o ambos) son CPU
+				// y ejecuta el primer movimiento que realizarán
 				if (player1.isCpu() && player1.isPlaying()) {
 					player1.movementCpu(window);
 				}
@@ -111,8 +117,8 @@ public class StartButton implements ActionListener {
 	 * @param playing
 	 * @param num
 	 */
-	public Player createPlayer(String name, boolean cpu, boolean playing, int num) {
-		Player player = new Player(name, cpu, playing, num);
+	public Player createPlayer(String name, boolean cpu, boolean playing, int num, String token) {
+		Player player = new Player(name, cpu, playing, num, token);
 		return player;
 	}
 }

@@ -25,10 +25,10 @@ public class DashboardButton implements ActionListener {
 	}
 
 	/**
-	 * Action ...
+	 * Logica de cuando el boton es apretado: - Realiza diversas comprobaciones de
+	 * la partida - Cambia las acciones segun el jugador que ha apretado el botón
 	 */
 	public void actionPerformed(ActionEvent e) {
-		// TODO completar mover ficha / quitar ficha de otro lado
 		// Miramos si el juego ha empezado
 		if (window.isStarted()) {
 
@@ -36,23 +36,36 @@ public class DashboardButton implements ActionListener {
 			if ((window.getTurn() == 1 && window.getPlayer1().isPlaying())
 					|| (window.getTurn() == 2 && window.getPlayer2().isPlaying())) {
 
-				// Comprueba Jugador 2, (X)
+				// Jugador 2, (X)
 				if (startGame.equalsIgnoreCase("X")) {
 
 					// Miramos si Jugador 2 tiene maximo de fichas (3)
-					if (window.getPlayer2().maxTokens() == false ) {
+					if (window.getPlayer2().maxTokens() == false) {
 
-						// Comprobamos que el buton esta vacio
+						// Comprobamos que el button esta vacio
 						if (btn.getText().compareTo("") == 0) {
+							// Se añade texto al boton igual al texto del jugador jugando (O o X)
 							btn.setText(startGame);
 							btn.setForeground(Color.RED);
+
+							// Se añade un token al jugador
 							window.getPlayer2().addToken();
+
+							// Se cambia al otro jugador la letra de turno (en este se pasa de X a O)
 							startGame = "O";
+							window.setTurn(1);
+							window.getPlayer1().setPlaying(true);
+							window.getPlayer2().setPlaying(false);
+
+							// Se cambia el label de status
 							window.setStatusLabel(window.getPlayer1().getName() + " es tu turno.");
+
+							// Se comprueba si se ha ganado
 							boolean winner = window.winner();
-							
-							// Comprobamos si el siguiente jugador es CPU y no hay ganador
-							if(!winner && window.getPlayer1().isCpu()) {
+
+							// Comprobamos si el siguiente jugador es CPU y aún no hay ganador
+							if (!winner && window.getPlayer1().isCpu()) {
+								// En ese caso se ejecuta el movimiento del jugador
 								window.getPlayer1().movementCpu(window);
 							}
 
@@ -63,23 +76,33 @@ public class DashboardButton implements ActionListener {
 					} else {
 						// Maximo de fichas alcanzado, hay que mover las ya existentes
 						deleteToken(window.getPlayer2());
+
+						// Ahora que el jugador ha borrado una ficha ya puede colocar otra
+						// Comprobamos si el jugador que acaba de apretar el boton es CPU
+						if (window.getPlayer2().isCpu()) {
+							// En ese caso se ejecuta el movimiento del jugador CPU
+							window.getPlayer2().movementCpu(window);
+						}
 					}
 
-					// Comprueba Jugador 1, (O)
+					// Jugador 1, (O) (mismo procedimiento que para el jugador 2 pero contrario)
 				} else {
 
-					// Miramos si jugador 1 tiene maximo de fichas
 					if (window.getPlayer1().maxTokens() == false) {
 
 						if (btn.getText().compareTo("") == 0) {
 							btn.setText(startGame);
 							btn.setForeground(Color.BLUE);
 							window.getPlayer1().addToken();
+
 							startGame = "X";
+							window.setTurn(2);
+							window.getPlayer1().setPlaying(false);
+							window.getPlayer2().setPlaying(true);
 							window.setStatusLabel(window.getPlayer2().getName() + " es tu turno.");
 							boolean winner = window.winner();
-							
-							if(!winner && window.getPlayer2().isCpu()) {
+
+							if (!winner && window.getPlayer2().isCpu()) {
 								window.getPlayer2().movementCpu(window);
 							}
 
@@ -88,6 +111,10 @@ public class DashboardButton implements ActionListener {
 						}
 					} else {
 						deleteToken(window.getPlayer1());
+						if (window.getPlayer1().isCpu()) {
+							window.getPlayer1().movementCpu(window);
+						}
+
 					}
 				}
 
@@ -99,7 +126,7 @@ public class DashboardButton implements ActionListener {
 			// En caso que la partida no haya empezado
 			JOptionPane.showMessageDialog(null, "EPA! La partida no ha empezado aun.", "ERROR", 0);
 		}
-		
+
 	}
 
 	/**
@@ -109,6 +136,8 @@ public class DashboardButton implements ActionListener {
 	 * @param player
 	 */
 	public void deleteToken(Player player) {
+		// Se comprueba que el boton que se quiere limpiar contiene un token del jugador
+		// que esta jugando
 		if (btn.getText().compareToIgnoreCase(startGame) == 0) {
 			btn.setText("");
 			player.subToken();

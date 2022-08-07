@@ -268,6 +268,105 @@ public class GraphicApp extends JFrame {
 	}
 
 	/**
+	 * Check para comprobar si ya hay ganador
+	 * 
+	 * @return
+	 */
+	public boolean winner() {
+		boolean winner = false;
+		if (btn_1.getText().compareToIgnoreCase("X") == 0 && btn_2.getText().compareToIgnoreCase("X") == 0
+				&& btn_3.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_1.getText().compareToIgnoreCase("O") == 0 && btn_2.getText().compareToIgnoreCase("O") == 0
+				&& btn_3.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_4.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
+				&& btn_6.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_4.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
+				&& btn_6.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_7.getText().compareToIgnoreCase("X") == 0 && btn_8.getText().compareToIgnoreCase("X") == 0
+				&& btn_9.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_7.getText().compareToIgnoreCase("O") == 0 && btn_8.getText().compareToIgnoreCase("O") == 0
+				&& btn_9.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_7.getText().compareToIgnoreCase("X") == 0 && btn_4.getText().compareToIgnoreCase("X") == 0
+				&& btn_1.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_7.getText().compareToIgnoreCase("O") == 0 && btn_4.getText().compareToIgnoreCase("O") == 0
+				&& btn_1.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_8.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
+				&& btn_2.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_8.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
+				&& btn_2.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_9.getText().compareToIgnoreCase("X") == 0 && btn_6.getText().compareToIgnoreCase("X") == 0
+				&& btn_3.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_9.getText().compareToIgnoreCase("O") == 0 && btn_6.getText().compareToIgnoreCase("O") == 0
+				&& btn_3.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_7.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
+				&& btn_3.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_7.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
+				&& btn_3.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		if (btn_9.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
+				&& btn_1.getText().compareToIgnoreCase("X") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		} else if (btn_9.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
+				&& btn_1.getText().compareToIgnoreCase("O") == 0) {
+			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
+			setAllDefault();
+			winner = true;
+		}
+		return winner;
+	}
+
+	/* Getters y Setters */
+	/**
 	 * @return the contentPane
 	 */
 	public JPanel getContentPane() {
@@ -484,103 +583,5 @@ public class GraphicApp extends JFrame {
 	 */
 	public void setTurn(int turn) {
 		this.turn = turn;
-	}
-
-	/**
-	 * Check para comprobar si ya hay ganador
-	 * 
-	 * @return
-	 */
-	public boolean winner() {
-		boolean winner = false;
-		if (btn_1.getText().compareToIgnoreCase("X") == 0 && btn_2.getText().compareToIgnoreCase("X") == 0
-				&& btn_3.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_1.getText().compareToIgnoreCase("O") == 0 && btn_2.getText().compareToIgnoreCase("O") == 0
-				&& btn_3.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_4.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
-				&& btn_6.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_4.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
-				&& btn_6.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_7.getText().compareToIgnoreCase("X") == 0 && btn_8.getText().compareToIgnoreCase("X") == 0
-				&& btn_9.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_7.getText().compareToIgnoreCase("O") == 0 && btn_8.getText().compareToIgnoreCase("O") == 0
-				&& btn_9.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_7.getText().compareToIgnoreCase("X") == 0 && btn_4.getText().compareToIgnoreCase("X") == 0
-				&& btn_1.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_7.getText().compareToIgnoreCase("O") == 0 && btn_4.getText().compareToIgnoreCase("O") == 0
-				&& btn_1.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_8.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
-				&& btn_2.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_8.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
-				&& btn_2.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_9.getText().compareToIgnoreCase("X") == 0 && btn_6.getText().compareToIgnoreCase("X") == 0
-				&& btn_3.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_9.getText().compareToIgnoreCase("O") == 0 && btn_6.getText().compareToIgnoreCase("O") == 0
-				&& btn_3.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_7.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
-				&& btn_3.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_7.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
-				&& btn_3.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		if (btn_9.getText().compareToIgnoreCase("X") == 0 && btn_5.getText().compareToIgnoreCase("X") == 0
-				&& btn_1.getText().compareToIgnoreCase("X") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 2 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		} else if (btn_9.getText().compareToIgnoreCase("O") == 0 && btn_5.getText().compareToIgnoreCase("O") == 0
-				&& btn_1.getText().compareToIgnoreCase("O") == 0) {
-			JOptionPane.showMessageDialog(null, "Jugador 1 es el ganador!!");
-			setAllDefault();
-			winner = true;
-		}
-		return winner;
 	}
 }
